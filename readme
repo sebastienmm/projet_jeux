@@ -1,0 +1,10 @@
+#C'est une première ébauche d'un jeux en langage c
+
+# le principe du jeux:
+
+# 1-L'ordinateur tire au sort un nombre entre 1 et 100.
+# 2-Il vous demande de deviner le nombre. Vous entrez donc un nombre entre 1 et 100.
+# 3-L'ordinateur compare le nombre que vous avez entré avec le nombre « mystère » qu'il a tiré au sort. Il vous dit si le nombre mystère est supérieur ou inférieur à celui que vous avez entré.
+# 4-Puis l'ordinateur vous redemande le nombre.
+# 5-Et il vous indique si le nombre mystère est supérieur ou inférieur
+# 6-Et ainsi de suite, jusqu'à ce que vous trouviez le nombre mystère.
