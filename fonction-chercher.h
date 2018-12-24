@@ -1,0 +1,4 @@
+#ifndef FONCTION-CHERCHER_H
+#define FONCTION-CHERCHER_H
+
+#endif /* FONCTION-CHERCHER_H */
