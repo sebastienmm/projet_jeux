@@ -1,6 +1,76 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+	
+// variable 
+	
+int nombreMystere=0;
+int proposition=0;
+int compteur=1;
+int recommencer=1;
+int choix;
+int mode;
+int niveau;
+int max, min;
+
+// fonction mode deux joueurs ou 1 joueur
+	
+	while (mode != 1 || mode != 2)
+		{
+			printf ("mode = ");
+			scanf ("%d",&mode);
+			if (mode == 1)
+			{
+				//initialisation et création d'un nombre aléatoire
+
+				srand( time ( NULL )) ;
+				nombreMystere=( rand() % ( max - min + 1 )) + min ;
+			
+				printf ("L'ordinateur a calculé un nombre mystère.\n A toi de jouer pour le trouver !!\n ");
+				printf ("Fais une première proposition comprise entre %d et %d \n", min, max);
+				break;
+			}
+			else if(mode == 2)
+			{
+				printf ("Le joueur 2 doit indiquer à l'ordinateur la valeur du nombre mystère\n");
+				printf ("le nombre qui doit être trouvé est :\n");
+				scanf ("%d",&nombreMystere);
+				printf ("Le joueur 2 a indiqué un nombre mystère.\n A toi de jouer pour le trouver !!\n ");
+				break;
+			}
+			else
+			{
+				printf ("Vous n'avez pas tapé le bon choix\n");
+			}
+		}
+		mode = 0 ;
+
+
+// Fonction permettant de trouver le nombre mystère
+
+int fonction_chercher(int nombreMystere)
+{
+	do
+	{
+			scanf ("%d", &proposition);
+			if (nombreMystere < proposition)
+			{
+					printf ("Le nombre mystère est plus petit,\n nouvelle proposition:\n");
+					compteur++;
+			}
+			else if(nombreMystere > proposition)
+			{
+					printf ("Le nombre mystère est plus grand,\n nouvelle proposition:\n");
+					compteur++;
+			}
+			else
+			{
+					printf ("Bravo tu as trouvé le nombre mystère en %d coup, il est égal à %d\n",compteur, proposition);
+					compteur = 1;
+			}
+	}while (nombreMystere != proposition );
+	return nombreMystere;
+}
 
 int main (int argc, char *argv[])
 {
@@ -32,9 +102,9 @@ int main (int argc, char *argv[])
 			scanf ("%d", &niveau);
 			if(niveau == 1)
 			{
-				max=50, min=1;
-				printf ("Le nombre mystère devra être trouvé entre %d et %d \n", min, max);
-				break;
+					max=50, min=1;
+					printf ("Le nombre mystère devra être trouvé entre %d et %d \n", min, max);
+					break;
 			}
 			else if(niveau == 2)
 			{
@@ -87,27 +157,15 @@ int main (int argc, char *argv[])
 			}
 		}
 		mode = 0 ;
-		//boucle permettant de trouver le nombre mystère
-
-		do
-		{
-			scanf ("%d", &proposition);
-			if (nombreMystere < proposition)
-			{
-				printf ("Le nombre mystère est plus petit,\n nouvelle proposition:\n");
-				compteur++;
-			}
-			else if(nombreMystere > proposition)
-			{
-				printf ("Le nombre mystère est plus grand,\n nouvelle proposition:\n");
-				compteur++;
-			}
-			else
-			{
-				printf ("Bravo tu as trouvé le nombre mystère en %d coup, il est égal à %d\n",compteur, proposition);
-				compteur = 1;
-			}
-		}while (nombreMystere != proposition );
+		
+		
+		
+		fonction_chercher( nombreMystere );
+		
+		
+		
+		
+		
 		printf ("Voulez-vous recommencez une partie?\n Si oui tapez 1 si non tapez 2.\n");
 		
 		while (!(choix == 1 || choix == 2))
